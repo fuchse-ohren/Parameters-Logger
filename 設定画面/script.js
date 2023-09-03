@@ -60,3 +60,5 @@ document.getElementById('apply').addEventListener('click',()=>{browser.runtime.r
 document.getElementById("regex").value = localStorage.getItem("targetURL");
 document.getElementById("excregex").value = localStorage.getItem("exclusionURL");
 document.getElementById("logsize").innerText = String(localStorage.getItem("log").length)+" バイト";
+
+document.getElementById('logview').addEventListener('click',()=>{window.open('/view/index.html')});

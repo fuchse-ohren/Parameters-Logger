@@ -18,5 +18,10 @@
 		"default_icon": "icons/icon.png",
 		"default_title": "ParamLog",
 		"default_popup": "設定画面/index.html"
+	},
+
+	"options_ui": {
+		"page": "view/index.html",
+		"open_in_tab": true
 	}
 }
