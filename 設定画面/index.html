@@ -1,0 +1,46 @@
+<!doctype html>
+<html style="background-color:#444444;color:#EEEEEE;">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+	<div style="max-width:320px;">
+		<h4>対象URL設定</h4>
+		<div id="message">正規表現を入力してください</div>
+		<table>
+			<tr>
+				<td><div style="width:60px;">対象URL</div></td>
+				<td><input id="regex" type="text" style="width:200px;"/></td>
+			</tr>
+			<tr>
+				<td><div style="width:60px;">除外URL</div></td>
+				<td><input id="excregex" type="text" style="width:200px;"/></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button id="save" style="width:100%;" >保存</button></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button id="apply" style="width:100%;">設定を適用</button></td>
+			</tr>
+		</table>
+		※設定を適用するまで有効になりません
+		<hr>
+		<h4>ログ操作</h4>
+		<div id="log_message"></div>
+		<table>
+			<tr>
+				<td><div style="width:60px;">ログ容量</div></td>
+				<td><div id="logsize" style="width:200px;">0</div></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button id="logdl" style="width:100%;" >ログをダウンロード</button></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button id="logrm" style="width:100%;">ログを消去</button></td>
+			</tr>
+		</table>
+	</div>
+		<script src="script.js"></script>
+  </body>
+</html>
