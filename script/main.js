@@ -72,18 +72,17 @@ function logURL(requestDetails) {
 			
 			if(!(requestDetails.requestBody.raw === undefined)){　// 生の値が入っている場合
 				for(var i = 0 ; i < requestDetails.requestBody.raw.length ; i++){
-					
+					var body = "";
 					try{ //文字列としてデコード
-						const body = String.fromCharCode.apply("", new Uint8Array(requestDetails.requestBody.raw[i].bytes));
+						body = String.fromCharCode.apply("", new Uint8Array(requestDetails.requestBody.raw[i].bytes));
 					}catch{　//文字列としてデコードできない場合
-						const body = "";
+						body = "";
 					}
 					
 					try{ //jsonの場合
 						const json = JSON.parse(body);
 						log[url]["params"] = log[url]["params"].concat(extractKeysFromJSON(json,'JSON'));
 					}catch{ //jsonでない生の値の場合
-						console.log("not json");
 					}
 					
 				}
