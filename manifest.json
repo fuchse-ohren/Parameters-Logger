@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Parameters Logger",
-	"version": "1.2",
+	"version": "1.2.1",
 	"description": "対象URLと除外URLを正規表現で指定し、リクエストにどのようなパラメタが含まれていたかを記録します。\n記録したデータはビューワーで閲覧できるだけでなくjson形式でエクスポート可能です。\n\n対応形式:GETパラメタ、HTML Form、Json形式\n\nアイコン提供: Flaticon.com",
 
 	"icons": {
@@ -17,7 +17,7 @@
 	"browser_action": {
 		"default_icon": "icons/icon.png",
 		"default_title": "ParamLog",
-		"default_popup": "設定画面/index.html"
+		"default_popup": "settings/index.html"
 	},
 
 	"options_ui": {
