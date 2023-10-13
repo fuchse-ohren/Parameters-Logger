@@ -102,7 +102,6 @@ function logURL(requestDetails) {
 }
 
 //ログ記録ストレージを初期化する
-localStorage.setItem("log",'{"https://example.com/":{"params":["example"]}}');
 try{
 	var log = localStorage.getItem("log");
 	JSON.parse(log);
