@@ -53,9 +53,20 @@ function dl(){
 	document.body.removeChild(a);
 }
 
+function reset(){
+	localStorage.setItem("targetURL", 'htt(p|ps)://example.net/.*');
+	localStorage.setItem("exclusionURL", '(.*\\.)(jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2|mp4|mp3|ts|m3u8|pdf|doc|docx|ppt|pptx|xls|xlsx|md)$');
+	message.innerText = "設定をリセットしました";
+	message.style.color="#e78B90";
+	document.getElementById("regex").value = localStorage.getItem("targetURL");
+	document.getElementById("excregex").value = localStorage.getItem("exclusionURL");
+	document.getElementById("logsize").innerText = String(localStorage.getItem("log").length)+" バイト";
+}
+
 document.getElementById('save').addEventListener('click',sv);
 document.getElementById('logrm').addEventListener('click',rm);
 document.getElementById('logdl').addEventListener('click',dl);
+document.getElementById('reset').addEventListener('click',reset);
 document.getElementById('apply').addEventListener('click',()=>{browser.runtime.reload()});
 document.getElementById("regex").value = localStorage.getItem("targetURL");
 document.getElementById("excregex").value = localStorage.getItem("exclusionURL");
