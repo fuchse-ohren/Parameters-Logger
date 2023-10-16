@@ -51,7 +51,7 @@ function extractKeysFromJSON(jsonData, parentKey = '') {
 function logURL(requestDetails) {
 	//URLの引数などを取り除く
 	const url = requestDetails.url.split(/(#|\?|\/$|\/\?)/)[0];
-	if(targetURL.test(requestDetails.url) && !exclusionURL.test(requestDetails.url)){
+	if(targetURL.test(url) && !exclusionURL.test(url)){
 		//ログ記録ストレージを開く
 		const log_str = localStorage.getItem("log");
 		log = JSON.parse(log_str);
@@ -114,7 +114,7 @@ try{
 
 //ターゲットURLを初期化する
 if(localStorage.getItem("targetURL") === null || localStorage.getItem("exclusionURL") === null){
-	localStorage.setItem("targetURL", 'htt(p|ps)://example.net/.*');
+	localStorage.setItem("targetURL", 'htt(p|ps)://example.net($|/.*)');
 	localStorage.setItem("exclusionURL", '(.*\\.)(jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2|mp4|mp3|ts|m3u8|pdf|doc|docx|ppt|pptx|xls|xlsx|md)$');
 	browser.runtime.reload();
 }

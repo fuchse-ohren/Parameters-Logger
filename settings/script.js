@@ -21,7 +21,9 @@ function sv(){
 	
 	//除外URLの登録
 		if(document.getElementById("excregex").value === ""){
-			document.getElementById("excregex").value = '(.*\\.)(jpg|jpeg|png|gif|svg|ico|css|js|woff|mp4|mp3|ts|m3u8|pdf|doc|docx|ppt|pptx|xls|xlsx|md)$';
+			message.innerText = "何か入力したらどうですか？";
+			message.style.color="#e78B90";
+			return;
 	}
 	
 	try{
@@ -54,7 +56,7 @@ function dl(){
 }
 
 function reset(){
-	localStorage.setItem("targetURL", 'htt(p|ps)://example.net/.*');
+	localStorage.setItem("targetURL", 'htt(p|ps)://example.net($|/.*)');
 	localStorage.setItem("exclusionURL", '(.*\\.)(jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2|mp4|mp3|ts|m3u8|pdf|doc|docx|ppt|pptx|xls|xlsx|md)$');
 	message.innerText = "設定をリセットしました";
 	message.style.color="#e78B90";
@@ -71,5 +73,4 @@ document.getElementById('apply').addEventListener('click',()=>{browser.runtime.r
 document.getElementById("regex").value = localStorage.getItem("targetURL");
 document.getElementById("excregex").value = localStorage.getItem("exclusionURL");
 document.getElementById("logsize").innerText = String(localStorage.getItem("log").length)+" バイト";
-
 document.getElementById('logview').addEventListener('click',()=>{window.open('/view/index.html')});
