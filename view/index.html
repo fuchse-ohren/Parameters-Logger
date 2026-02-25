@@ -1,13 +1,26 @@
 <HTML>
 <head>
 <title>Log Viewer</title>
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/table.css">
 </head>
 
 <body>
 	<h1>Log Viewer</h1>
-	<table border="1" id="tbl"> 
-		<tr><td>URL</td><td>Params</td></tr>
-	</table>
+	
+	<div class="dads-table" data-size="dense" data-row-stripe>
+		<table border="1" class="dads-table__table" data-cell-border > 
+			<thead>
+				<tr>
+					<th class="dads-table__col-header" scope="col">URL</th>
+					<th class="dads-table__col-header" scope="col">Params</th>
+				</tr>
+			</thead>
+			<tbody  id="tbl">
+			</tbody>
+		</table>
+	</div>
+	
 	<script src="script.js"></script>
 </body>
 </HTML>

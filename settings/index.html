@@ -1,51 +1,101 @@
 <!doctype html>
-<html style="background-color:#444444;color:#EEEEEE;font-size:12px;">
+<html style="background-color:#FFF;color:#000;font-size:12px;">
   <head>
     <meta charset="utf-8" />
+	<link rel="stylesheet" href="../css/global.css">
+	<link rel="stylesheet" href="../css/button.css">
+	<link rel="stylesheet" href="../css/form-control-label.css">
+	<link rel="stylesheet" href="../css/input-text.css">
+	<link rel="stylesheet" href="../css/textarea.css">
+	<link rel="stylesheet" href="../css/divider.css">
+	<link rel="stylesheet" href="../css/accordion.css">
   </head>
 
   <body>
-	<div style="max-width:320px;">
-		<h4>対象URL設定</h4>
-		<div id="message">正規表現を入力してください</div>
+	<div style="width:330px; height:640px; margin:5px;">
+		<h2>対象URL設定</h2>
+		<div id="message"></div>
 		<table>
 			<tr>
-				<td><div style="width:60px;">対象URL</div></td>
-				<td><input id="regex" type="text" style="width:200px;"/></td>
+				<td colspan="2">
+					<div class="dads-form-control-label" data-size="md">
+					  <label class="dads-form-control-label__label" for="regex">
+						URL条件式
+						<span class="dads-form-control-label__requirement" data-required="true">※必須</span>
+					  </label>
+					  <p id="single-support-text" class="dads-form-control-label__support-text">ログ取得対象を正規表現で指定してください</p>
+					  <div>
+						<span class="dads-textarea">
+						  <textarea id="regex" class="dads-textarea__textarea" aria-invalid="false"></textarea>
+						  <span id="regex-error-text" class="dads-input-text__error-text" style="display:none;">＊エラーテキストが入ります。</span>
+						</span>
+					  </div>
+					</div>
+				</td>
 			</tr>
 			<tr>
-				<td><div style="width:60px;">除外URL</div></td>
-				<td><input id="excregex" type="text" style="width:200px;"/></td>
+			<td colspan="2"><hr class="dads-divider" data-color="solid-gray-420" data-style="dashed" data-width="1"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><button id="save" style="width:100%;" >保存</button></td>
+				<td colspan="2">
+					<div class="dads-form-control-label" data-size="md">
+					  <label class="dads-form-control-label__label" for="excregex">
+						除外条件式
+					  </label>
+					  <p id="single-support-text" class="dads-form-control-label__support-text">ログ取得から除外する条件式を指定してください</p>
+					  <div>
+						<span class="dads-textarea">
+						  <textarea id="excregex" class="dads-textarea__textarea" aria-invalid="false"></textarea>
+						  <span id="excregex-error-text" class="dads-input-text__error-text" style="display:none;">＊エラーテキストが入ります。</span>
+						</span>
+					  </div>
+					</div>
+				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><button id="reset" style="width:100%;">リセット</button></td>
+				<td colspan="2"><button id="save" style="width:100%;" class="dads-button" data-size="md" data-type="solid-fill">保存</button></td>
 			</tr>
 			<tr>
-				<td colspan="2"><button id="apply" style="width:100%;">設定を適用</button></td>
+				<td colspan="2"><button id="reset" style="width:100%;" class="dads-button" data-size="md" data-type="outline">リセット</button></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button id="apply" style="width:100%;" class="dads-button" data-size="md" data-type="outline">設定を適用</button></td>
 			</tr>
 		</table>
 		※設定を適用するまで有効になりません
-		<hr>
-		<h4>ログ操作</h4>
-		<div id="log_message"></div>
-		<table>
-			<tr>
-				<td><div style="width:60px;">ログ容量</div></td>
-				<td><div id="logsize" style="width:200px;">0</div></td>
-			</tr>
-			<tr>
-				<td colspan="2"><button id="logview" style="width:100%;" >ログを閲覧</button></td>
-			</tr>
-			<tr>
-				<td colspan="2"><button id="logdl" style="width:100%;" >ログをダウンロード</button></td>
-			</tr>
-			<tr>
-				<td colspan="2"><button id="logrm" style="width:100%;">ログを消去</button></td>
-			</tr>
-		</table>
+		
+		<hr class="dads-divider" data-color="solid-gray-420" data-style="solid" data-width="1" />
+		
+		
+		<details class="dads-accordion">
+		  <summary id="accordion-playground-1" class="dads-accordion__summary">
+			<span class="dads-accordion__icon">
+			  <svg class="dads-accordion__icon-svg" width="24" height="24" viewbox="0 0 24 24" aria-hidden="true">
+				<path d="M3.3 7.3L12 16L20.7 7.3" fill="none" stroke="currentcolor" stroke-width="2"></path>
+			  </svg>
+			</span>
+			<h3>ログ操作</h3>
+		  </summary>
+		  <div class="dads-accordion__content">
+			<div id="log_message"></div>
+			<table>
+				<tr>
+					<td><div style="width:60px;">ログ容量</div></td>
+					<td><div id="logsize" style="width:200px;">0</div></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button id="logview" style="width:100%;" class="dads-button" data-size="md" data-type="outline">ログを閲覧</button></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button id="logdl" style="width:100%;" class="dads-button" data-size="md" data-type="outline">ログをダウンロード</button></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button id="logrm" style="width:100%;color:#D00;" class="dads-button" data-size="md" data-type="outline">ログを消去</button></td>
+				</tr>
+			</table>
+		  </div>
+		</details>
+		
 	</div>
 		<script src="script.js"></script>
   </body>
